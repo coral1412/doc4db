@@ -1,0 +1,42 @@
+[server default]
+user=mysqlmha
+password=passwd
+ssh_user=root
+repl_user=repl
+repl_password=passwd
+ssh_port=22
+ping_interval=1
+manager_workdir=/mysqlmha/mha
+manager_log=/mysqlmha/mha/manager.log
+remote_workdir=/mysqlmha/mha
+port=3456
+report_script=/etc/conf/mysqlmha/send_report
+
+master_ip_failover_script=/etc/conf/mysqlmha/master_ip_failover
+master_ip_online_change_script=/etc/conf/mysqlmha/master_ip_online_change
+secondary_check_script=masterha_secondary_check -s 192.168.100.102 -s 192.168.100.103 -s 192.168.100.104 --user=mysqlmha --master_ip=192.168.100.102 --master_port=3456
+#shutdown_script=/etc/conf/mysqlmha/power_manager.sh
+#report_script=/etc/conf/mysqlmha/send_report.sh
+#secondary_check_script= mysqlmha_secondary_check -s secondary_host1 -s secondary_host2 --user=ssh_username --master_host=host --master_ip=ip --master_port=port
+
+[server1]
+hostname=192.168.100.102
+port=3456
+candidate_master=0
+master_binlog_dir=/data/mysql/binlog
+check_repl_delay=0
+
+[server2]
+hostname=192.168.100.103
+port=3456
+candidate_master=1
+master_binlog_dir=/data/mysql/binlog
+check_repl_delay=0
+#ignore_fail=1
+
+[server3]
+hostname=192.168.100.104
+port=3456
+master_binlog_dir=/data/mysql/binlog
+no_master=1
+ignore_fail=1

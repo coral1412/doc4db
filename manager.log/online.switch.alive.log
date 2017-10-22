@@ -1,0 +1,109 @@
+Sat Sep  3 02:36:12 2016 - [info] MHA::MasterRotate version 0.56.
+Sat Sep  3 02:36:12 2016 - [info] Starting online master switch..
+Sat Sep  3 02:36:12 2016 - [info] 
+Sat Sep  3 02:36:12 2016 - [info] * Phase 1: Configuration Check Phase..
+Sat Sep  3 02:36:12 2016 - [info] 
+Sat Sep  3 02:36:12 2016 - [warning] Global configuration file /etc/masterha_default.cnf not found. Skipping.
+Sat Sep  3 02:36:12 2016 - [info] Reading application default configuration from /etc/conf/mysqlmha/mha.cnf..
+Sat Sep  3 02:36:12 2016 - [info] Reading server configuration from /etc/conf/mysqlmha/mha.cnf..
+Sat Sep  3 02:36:12 2016 - [info] GTID failover mode = 1
+Sat Sep  3 02:36:12 2016 - [info] Current Alive Master: 192.168.100.103(192.168.100.103:3456)
+Sat Sep  3 02:36:12 2016 - [info] Alive Slaves:
+Sat Sep  3 02:36:12 2016 - [info]   192.168.100.102(192.168.100.102:3456)  Version=5.6.37-82.2-log (oldest major version between slaves) log-bin:enabled
+Sat Sep  3 02:36:12 2016 - [info]     GTID ON
+Sat Sep  3 02:36:12 2016 - [info]     Replicating from 192.168.100.103(192.168.100.103:3456)
+Sat Sep  3 02:36:12 2016 - [info]   192.168.100.104(192.168.100.104:3456)  Version=5.6.37-82.2-log (oldest major version between slaves) log-bin:enabled
+Sat Sep  3 02:36:12 2016 - [info]     GTID ON
+Sat Sep  3 02:36:12 2016 - [info]     Replicating from 192.168.100.103(192.168.100.103:3456)
+Sat Sep  3 02:36:12 2016 - [info]     Not candidate for the new Master (no_master is set)
+Sat Sep  3 02:36:12 2016 - [info] Executing FLUSH NO_WRITE_TO_BINLOG TABLES. This may take long time..
+Sat Sep  3 02:36:12 2016 - [info]  ok.
+Sat Sep  3 02:36:12 2016 - [info] Checking MHA is not monitoring or doing failover..
+Sat Sep  3 02:36:12 2016 - [info] Checking replication health on 192.168.100.102..
+Sat Sep  3 02:36:12 2016 - [info]  ok.
+Sat Sep  3 02:36:12 2016 - [info] Checking replication health on 192.168.100.104..
+Sat Sep  3 02:36:12 2016 - [info]  ok.
+Sat Sep  3 02:36:12 2016 - [info] 192.168.100.102 can be new master.
+Sat Sep  3 02:36:12 2016 - [info] 
+From:
+192.168.100.103(192.168.100.103:3456) (current master)
+ +--192.168.100.102(192.168.100.102:3456)
+ +--192.168.100.104(192.168.100.104:3456)
+
+To:
+192.168.100.102(192.168.100.102:3456) (new master)
+ +--192.168.100.104(192.168.100.104:3456)
+ +--192.168.100.103(192.168.100.103:3456)
+Sat Sep  3 02:36:12 2016 - [info] Checking whether 192.168.100.102(192.168.100.102:3456) is ok for the new master..
+Sat Sep  3 02:36:12 2016 - [info]  ok.
+Sat Sep  3 02:36:12 2016 - [info] 192.168.100.103(192.168.100.103:3456): SHOW SLAVE STATUS returned empty result. To check replication filtering rules, temporarily executing CHANGE MASTER to a dummy host.
+Sat Sep  3 02:36:12 2016 - [info] 192.168.100.103(192.168.100.103:3456): Resetting slave pointing to the dummy host.
+Sat Sep  3 02:36:12 2016 - [info] ** Phase 1: Configuration Check Phase completed.
+Sat Sep  3 02:36:12 2016 - [info] 
+Sat Sep  3 02:36:12 2016 - [info] * Phase 2: Rejecting updates Phase..
+Sat Sep  3 02:36:12 2016 - [info] 
+Sat Sep  3 02:36:12 2016 - [info] Executing master ip online change script to disable write on the current master:
+Sat Sep  3 02:36:12 2016 - [info]   /etc/conf/mysqlmha/master_ip_online_change --command=stop --orig_master_host=192.168.100.103 --orig_master_ip=192.168.100.103 --orig_master_port=3456 --orig_master_user='mysqlmha' --orig_master_password='passwd' --new_master_host=192.168.100.102 --new_master_ip=192.168.100.102 --new_master_port=3456 --new_master_user='mysqlmha' --new_master_password='passwd' --orig_master_ssh_user=root --new_master_ssh_user=root   --orig_master_is_new_slave
+
+
+
+***************************************************************
+Disabling the VIP - 192.168.100.100/24 on old master: 192.168.100.103
+***************************************************************
+
+
+
+sudo: sorry, you must have a tty to run sudo
+Sat Sep  3 02:36:12 2016 - [info]  ok.
+Sat Sep  3 02:36:12 2016 - [info] Locking all tables on the orig master to reject updates from everybody (including root):
+Sat Sep  3 02:36:12 2016 - [info] Executing FLUSH TABLES WITH READ LOCK..
+Sat Sep  3 02:36:12 2016 - [info]  ok.
+Sat Sep  3 02:36:12 2016 - [info] Orig master binlog:pos is mysql-bin.000008:231.
+Sat Sep  3 02:36:12 2016 - [info]  Waiting to execute all relay logs on 192.168.100.102(192.168.100.102:3456)..
+Sat Sep  3 02:36:12 2016 - [info]  master_pos_wait(mysql-bin.000008:231) completed on 192.168.100.102(192.168.100.102:3456). Executed 0 events.
+Sat Sep  3 02:36:12 2016 - [info]   done.
+Sat Sep  3 02:36:12 2016 - [info] Getting new master's binlog name and position..
+Sat Sep  3 02:36:12 2016 - [info]  mysql-bin.000010:231
+Sat Sep  3 02:36:12 2016 - [info]  All other slaves should start replication from here. Statement should be: CHANGE MASTER TO MASTER_HOST='192.168.100.102', MASTER_PORT=3456, MASTER_AUTO_POSITION=1, MASTER_USER='repl', MASTER_PASSWORD='xxx';
+Sat Sep  3 02:36:12 2016 - [info] Executing master ip online change script to allow write on the new master:
+Sat Sep  3 02:36:12 2016 - [info]   /etc/conf/mysqlmha/master_ip_online_change --command=start --orig_master_host=192.168.100.103 --orig_master_ip=192.168.100.103 --orig_master_port=3456 --orig_master_user='mysqlmha' --orig_master_password='passwd' --new_master_host=192.168.100.102 --new_master_ip=192.168.100.102 --new_master_port=3456 --new_master_user='mysqlmha' --new_master_password='passwd' --orig_master_ssh_user=root --new_master_ssh_user=root   --orig_master_is_new_slave
+
+
+
+***************************************************************
+Enabling the VIP - 192.168.100.100/24 on new master: 192.168.100.102 
+***************************************************************
+
+
+
+sudo: sorry, you must have a tty to run sudo
+Sat Sep  3 02:36:13 2016 - [info]  ok.
+Sat Sep  3 02:36:13 2016 - [info] 
+Sat Sep  3 02:36:13 2016 - [info] * Switching slaves in parallel..
+Sat Sep  3 02:36:13 2016 - [info] 
+Sat Sep  3 02:36:13 2016 - [info] -- Slave switch on host 192.168.100.104(192.168.100.104:3456) started, pid: 9144
+Sat Sep  3 02:36:13 2016 - [info] 
+Sat Sep  3 02:36:14 2016 - [info] Log messages from 192.168.100.104 ...
+Sat Sep  3 02:36:14 2016 - [info] 
+Sat Sep  3 02:36:13 2016 - [info]  Waiting to execute all relay logs on 192.168.100.104(192.168.100.104:3456)..
+Sat Sep  3 02:36:13 2016 - [info]  master_pos_wait(mysql-bin.000008:231) completed on 192.168.100.104(192.168.100.104:3456). Executed 0 events.
+Sat Sep  3 02:36:13 2016 - [info]   done.
+Sat Sep  3 02:36:13 2016 - [info]  Resetting slave 192.168.100.104(192.168.100.104:3456) and starting replication from the new master 192.168.100.102(192.168.100.102:3456)..
+Sat Sep  3 02:36:13 2016 - [info]  Executed CHANGE MASTER.
+Sat Sep  3 02:36:14 2016 - [info]  Slave started.
+Sat Sep  3 02:36:14 2016 - [info] End of log messages from 192.168.100.104 ...
+Sat Sep  3 02:36:14 2016 - [info] 
+Sat Sep  3 02:36:14 2016 - [info] -- Slave switch on host 192.168.100.104(192.168.100.104:3456) succeeded.
+Sat Sep  3 02:36:14 2016 - [info] Unlocking all tables on the orig master:
+Sat Sep  3 02:36:14 2016 - [info] Executing UNLOCK TABLES..
+Sat Sep  3 02:36:14 2016 - [info]  ok.
+Sat Sep  3 02:36:14 2016 - [info] Starting orig master as a new slave..
+Sat Sep  3 02:36:14 2016 - [info]  Resetting slave 192.168.100.103(192.168.100.103:3456) and starting replication from the new master 192.168.100.102(192.168.100.102:3456)..
+Sat Sep  3 02:36:14 2016 - [info]  Executed CHANGE MASTER.
+Sat Sep  3 02:36:14 2016 - [info]  Slave started.
+Sat Sep  3 02:36:14 2016 - [info] All new slave servers switched successfully.
+Sat Sep  3 02:36:14 2016 - [info] 
+Sat Sep  3 02:36:14 2016 - [info] * Phase 5: New master cleanup phase..
+Sat Sep  3 02:36:14 2016 - [info] 
+Sat Sep  3 02:36:14 2016 - [info]  192.168.100.102: Resetting slave info succeeded.
+Sat Sep  3 02:36:14 2016 - [info] Switching master to 192.168.100.102(192.168.100.102:3456) completed successfully.

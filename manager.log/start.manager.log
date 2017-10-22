@@ -1,0 +1,44 @@
+Sat Sep  3 01:58:05 2016 - [info] MHA::MasterMonitor version 0.56.
+Sat Sep  3 01:58:05 2016 - [info] GTID failover mode = 1
+Sat Sep  3 01:58:05 2016 - [info] Dead Servers:
+Sat Sep  3 01:58:05 2016 - [info] Alive Servers:
+Sat Sep  3 01:58:05 2016 - [info]   192.168.100.102(192.168.100.102:3456)
+Sat Sep  3 01:58:05 2016 - [info]   192.168.100.103(192.168.100.103:3456)
+Sat Sep  3 01:58:05 2016 - [info]   192.168.100.104(192.168.100.104:3456)
+Sat Sep  3 01:58:05 2016 - [info] Alive Slaves:
+Sat Sep  3 01:58:05 2016 - [info]   192.168.100.102(192.168.100.102:3456)  Version=5.6.37-82.2-log (oldest major version between slaves) log-bin:enabled
+Sat Sep  3 01:58:05 2016 - [info]     GTID ON
+Sat Sep  3 01:58:05 2016 - [info]     Replicating from 192.168.100.103(192.168.100.103:3456)
+Sat Sep  3 01:58:05 2016 - [info]   192.168.100.104(192.168.100.104:3456)  Version=5.6.37-82.2-log (oldest major version between slaves) log-bin:enabled
+Sat Sep  3 01:58:05 2016 - [info]     GTID ON
+Sat Sep  3 01:58:05 2016 - [info]     Replicating from 192.168.100.103(192.168.100.103:3456)
+Sat Sep  3 01:58:05 2016 - [info]     Not candidate for the new Master (no_master is set)
+Sat Sep  3 01:58:05 2016 - [info] Current Alive Master: 192.168.100.103(192.168.100.103:3456)
+Sat Sep  3 01:58:05 2016 - [info] Checking slave configurations..
+Sat Sep  3 01:58:05 2016 - [info]  read_only=1 is not set on slave 192.168.100.102(192.168.100.102:3456).
+Sat Sep  3 01:58:05 2016 - [info]  read_only=1 is not set on slave 192.168.100.104(192.168.100.104:3456).
+Sat Sep  3 01:58:05 2016 - [info] Checking replication filtering settings..
+Sat Sep  3 01:58:05 2016 - [info]  binlog_do_db= , binlog_ignore_db= 
+Sat Sep  3 01:58:05 2016 - [info]  Replication filtering check ok.
+Sat Sep  3 01:58:05 2016 - [info] GTID (with auto-pos) is supported. Skipping all SSH and Node package checking.
+Sat Sep  3 01:58:05 2016 - [info] Checking SSH publickey authentication settings on the current master..
+Sat Sep  3 01:58:06 2016 - [info] HealthCheck: SSH to 192.168.100.103 is reachable.
+Sat Sep  3 01:58:06 2016 - [info] 
+192.168.100.103(192.168.100.103:3456) (current master)
+ +--192.168.100.102(192.168.100.102:3456)
+ +--192.168.100.104(192.168.100.104:3456)
+
+Sat Sep  3 01:58:06 2016 - [info] Checking master_ip_failover_script status:
+Sat Sep  3 01:58:06 2016 - [info]   /etc/conf/mysqlmha/master_ip_failover --command=status --ssh_user=root --orig_master_host=192.168.100.103 --orig_master_ip=192.168.100.103 --orig_master_port=3456 
+
+
+IN SCRIPT TEST====sudo /sbin/ifconfig eth0:1 down==sudo /sbin/ifconfig eth0:1 192.168.100.100/24===
+
+Checking the Status of the script.. OK 
+sudo: sorry, you must have a tty to run sudo
+Sat Sep  3 01:58:06 2016 - [info]  OK.
+Sat Sep  3 01:58:06 2016 - [warning] shutdown_script is not defined.
+Sat Sep  3 01:58:06 2016 - [info] Set master ping interval 1 seconds.
+Sat Sep  3 01:58:06 2016 - [info] Set secondary check script: masterha_secondary_check -s 192.168.100.102 -s 192.168.100.103 -s 192.168.100.104 --user=mysqlmha --master_ip=192.168.100.102 --master_port=3456
+Sat Sep  3 01:58:06 2016 - [info] Starting ping health check on 192.168.100.103(192.168.100.103:3456)..
+Sat Sep  3 01:58:06 2016 - [info] Ping(SELECT) succeeded, waiting until MySQL doesn't respond..

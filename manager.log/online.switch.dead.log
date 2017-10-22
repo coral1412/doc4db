@@ -1,0 +1,190 @@
+###ÇÐ»»Ê§°Ü
+Sat Sep  3 02:56:59 2016 - [info] MHA::MasterFailover version 0.56.
+Sat Sep  3 02:56:59 2016 - [info] Starting master failover.
+Sat Sep  3 02:56:59 2016 - [info] 
+Sat Sep  3 02:56:59 2016 - [info] * Phase 1: Configuration Check Phase..
+Sat Sep  3 02:56:59 2016 - [info] 
+Sat Sep  3 02:56:59 2016 - [info] GTID failover mode = 1
+Sat Sep  3 02:56:59 2016 - [info] Dead Servers:
+Sat Sep  3 02:56:59 2016 - [info]   192.168.100.102(192.168.100.102:3456)
+Sat Sep  3 02:56:59 2016 - [info] Checking master reachability via MySQL(double check)...
+Sat Sep  3 02:56:59 2016 - [info]  ok.
+Sat Sep  3 02:56:59 2016 - [info] Alive Servers:
+Sat Sep  3 02:56:59 2016 - [info]   192.168.100.103(192.168.100.103:3456)
+Sat Sep  3 02:56:59 2016 - [info]   192.168.100.104(192.168.100.104:3456)
+Sat Sep  3 02:56:59 2016 - [info] Alive Slaves:
+Sat Sep  3 02:56:59 2016 - [info]   192.168.100.103(192.168.100.103:3456)  Version=5.6.37-82.2-log (oldest major version between slaves) log-bin:enabled
+Sat Sep  3 02:56:59 2016 - [info]     GTID ON
+Sat Sep  3 02:56:59 2016 - [info]     Replicating from 192.168.100.102(192.168.100.102:3456)
+Sat Sep  3 02:56:59 2016 - [info]     Primary candidate for the new Master (candidate_master is set)
+Sat Sep  3 02:56:59 2016 - [info]   192.168.100.104(192.168.100.104:3456)  Version=5.6.37-82.2-log (oldest major version between slaves) log-bin:enabled
+Sat Sep  3 02:56:59 2016 - [info]     GTID ON
+Sat Sep  3 02:56:59 2016 - [info]     Replicating from 192.168.100.102(192.168.100.102:3456)
+Sat Sep  3 02:56:59 2016 - [info]     Not candidate for the new Master (no_master is set)
+Sat Sep  3 02:56:59 2016 - [error][/usr/share/perl5/vendor_perl/MHA/MasterFailover.pm, ln309] Last failover was done at 2016/09/03 02:08:16. Current time is too early to do failover again. If you want to do failover, manually remove /mysqlmha/mha/mha.failover.complete and run this script again.
+Sat Sep  3 02:56:59 2016 - [error][/usr/share/perl5/vendor_perl/MHA/ManagerUtil.pm, ln177] Got ERROR:  at /usr/bin/masterha_master_switch line 53
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+##ÇÐ»»³É¹¦
+Sat Sep  3 02:59:07 2016 - [info] MHA::MasterFailover version 0.56.
+Sat Sep  3 02:59:07 2016 - [info] Starting master failover.
+Sat Sep  3 02:59:07 2016 - [info] 
+Sat Sep  3 02:59:07 2016 - [info] * Phase 1: Configuration Check Phase..
+Sat Sep  3 02:59:07 2016 - [info] 
+Sat Sep  3 02:59:07 2016 - [info] GTID failover mode = 1
+Sat Sep  3 02:59:07 2016 - [info] Dead Servers:
+Sat Sep  3 02:59:07 2016 - [info]   192.168.100.102(192.168.100.102:3456)
+Sat Sep  3 02:59:07 2016 - [info] Checking master reachability via MySQL(double check)...
+Sat Sep  3 02:59:07 2016 - [info]  ok.
+Sat Sep  3 02:59:07 2016 - [info] Alive Servers:
+Sat Sep  3 02:59:07 2016 - [info]   192.168.100.103(192.168.100.103:3456)
+Sat Sep  3 02:59:07 2016 - [info]   192.168.100.104(192.168.100.104:3456)
+Sat Sep  3 02:59:07 2016 - [info] Alive Slaves:
+Sat Sep  3 02:59:07 2016 - [info]   192.168.100.103(192.168.100.103:3456)  Version=5.6.37-82.2-log (oldest major version between slaves) log-bin:enabled
+Sat Sep  3 02:59:07 2016 - [info]     GTID ON
+Sat Sep  3 02:59:07 2016 - [info]     Replicating from 192.168.100.102(192.168.100.102:3456)
+Sat Sep  3 02:59:07 2016 - [info]     Primary candidate for the new Master (candidate_master is set)
+Sat Sep  3 02:59:07 2016 - [info]   192.168.100.104(192.168.100.104:3456)  Version=5.6.37-82.2-log (oldest major version between slaves) log-bin:enabled
+Sat Sep  3 02:59:07 2016 - [info]     GTID ON
+Sat Sep  3 02:59:07 2016 - [info]     Replicating from 192.168.100.102(192.168.100.102:3456)
+Sat Sep  3 02:59:07 2016 - [info]     Not candidate for the new Master (no_master is set)
+Sat Sep  3 02:59:07 2016 - [info] Starting GTID based failover.
+Sat Sep  3 02:59:07 2016 - [info] 
+Sat Sep  3 02:59:07 2016 - [info] ** Phase 1: Configuration Check Phase completed.
+Sat Sep  3 02:59:07 2016 - [info] 
+Sat Sep  3 02:59:07 2016 - [info] * Phase 2: Dead Master Shutdown Phase..
+Sat Sep  3 02:59:07 2016 - [info] 
+Sat Sep  3 02:59:07 2016 - [info] HealthCheck: SSH to 192.168.100.102 is reachable.
+Sat Sep  3 02:59:08 2016 - [info] Forcing shutdown so that applications never connect to the current master..
+Sat Sep  3 02:59:08 2016 - [info] Executing master IP deactivation script:
+Sat Sep  3 02:59:08 2016 - [info]   /etc/conf/mysqlmha/master_ip_failover --orig_master_host=192.168.100.102 --orig_master_ip=192.168.100.102 --orig_master_port=3456 --command=stopssh --ssh_user=root  
+
+
+IN SCRIPT TEST====sudo /sbin/ifconfig eth0:1 down==sudo /sbin/ifconfig eth0:1 192.168.100.100/24===
+
+Disabling the VIP on old master: 192.168.100.102 
+sudo: sorry, you must have a tty to run sudo
+Sat Sep  3 02:59:09 2016 - [info]  done.
+Sat Sep  3 02:59:09 2016 - [warning] shutdown_script is not set. Skipping explicit shutting down of the dead master.
+Sat Sep  3 02:59:09 2016 - [info] * Phase 2: Dead Master Shutdown Phase completed.
+Sat Sep  3 02:59:09 2016 - [info] 
+Sat Sep  3 02:59:09 2016 - [info] * Phase 3: Master Recovery Phase..
+Sat Sep  3 02:59:09 2016 - [info] 
+Sat Sep  3 02:59:09 2016 - [info] * Phase 3.1: Getting Latest Slaves Phase..
+Sat Sep  3 02:59:09 2016 - [info] 
+Sat Sep  3 02:59:09 2016 - [info] The latest binary log file/position on all slaves is mysql-bin.000010:231
+Sat Sep  3 02:59:09 2016 - [info] Latest slaves (Slaves that received relay log files to the latest):
+Sat Sep  3 02:59:09 2016 - [info]   192.168.100.103(192.168.100.103:3456)  Version=5.6.37-82.2-log (oldest major version between slaves) log-bin:enabled
+Sat Sep  3 02:59:09 2016 - [info]     GTID ON
+Sat Sep  3 02:59:09 2016 - [info]     Replicating from 192.168.100.102(192.168.100.102:3456)
+Sat Sep  3 02:59:09 2016 - [info]     Primary candidate for the new Master (candidate_master is set)
+Sat Sep  3 02:59:09 2016 - [info]   192.168.100.104(192.168.100.104:3456)  Version=5.6.37-82.2-log (oldest major version between slaves) log-bin:enabled
+Sat Sep  3 02:59:09 2016 - [info]     GTID ON
+Sat Sep  3 02:59:09 2016 - [info]     Replicating from 192.168.100.102(192.168.100.102:3456)
+Sat Sep  3 02:59:09 2016 - [info]     Not candidate for the new Master (no_master is set)
+Sat Sep  3 02:59:09 2016 - [info] The oldest binary log file/position on all slaves is mysql-bin.000010:231
+Sat Sep  3 02:59:09 2016 - [info] Oldest slaves:
+Sat Sep  3 02:59:09 2016 - [info]   192.168.100.103(192.168.100.103:3456)  Version=5.6.37-82.2-log (oldest major version between slaves) log-bin:enabled
+Sat Sep  3 02:59:09 2016 - [info]     GTID ON
+Sat Sep  3 02:59:09 2016 - [info]     Replicating from 192.168.100.102(192.168.100.102:3456)
+Sat Sep  3 02:59:09 2016 - [info]     Primary candidate for the new Master (candidate_master is set)
+Sat Sep  3 02:59:09 2016 - [info]   192.168.100.104(192.168.100.104:3456)  Version=5.6.37-82.2-log (oldest major version between slaves) log-bin:enabled
+Sat Sep  3 02:59:09 2016 - [info]     GTID ON
+Sat Sep  3 02:59:09 2016 - [info]     Replicating from 192.168.100.102(192.168.100.102:3456)
+Sat Sep  3 02:59:09 2016 - [info]     Not candidate for the new Master (no_master is set)
+Sat Sep  3 02:59:09 2016 - [info] 
+Sat Sep  3 02:59:09 2016 - [info] * Phase 3.3: Determining New Master Phase..
+Sat Sep  3 02:59:09 2016 - [info] 
+Sat Sep  3 02:59:09 2016 - [info] 192.168.100.103 can be new master.
+Sat Sep  3 02:59:09 2016 - [info] New master is 192.168.100.103(192.168.100.103:3456)
+Sat Sep  3 02:59:09 2016 - [info] Starting master failover..
+Sat Sep  3 02:59:09 2016 - [info] 
+From:
+192.168.100.102(192.168.100.102:3456) (current master)
+ +--192.168.100.103(192.168.100.103:3456)
+ +--192.168.100.104(192.168.100.104:3456)
+
+To:
+192.168.100.103(192.168.100.103:3456) (new master)
+ +--192.168.100.104(192.168.100.104:3456)
+Sat Sep  3 02:59:09 2016 - [info] 
+Sat Sep  3 02:59:09 2016 - [info] * Phase 3.3: New Master Recovery Phase..
+Sat Sep  3 02:59:09 2016 - [info] 
+Sat Sep  3 02:59:09 2016 - [info]  Waiting all logs to be applied.. 
+Sat Sep  3 02:59:09 2016 - [info]   done.
+Sat Sep  3 02:59:09 2016 - [info] Getting new master's binlog name and position..
+Sat Sep  3 02:59:09 2016 - [info]  mysql-bin.000008:231
+Sat Sep  3 02:59:09 2016 - [info]  All other slaves should start replication from here. Statement should be: CHANGE MASTER TO MASTER_HOST='192.168.100.103', MASTER_PORT=3456, MASTER_AUTO_POSITION=1, MASTER_USER='repl', MASTER_PASSWORD='xxx';
+Sat Sep  3 02:59:09 2016 - [info] Master Recovery succeeded. File:Pos:Exec_Gtid_Set: mysql-bin.000008, 231, a24c0b76-702f-11e6-ae67-000c29b1c1f6:1,
+d1dfb067-702e-11e6-ae62-000c29e8d942:1-3
+Sat Sep  3 02:59:09 2016 - [info] Executing master IP activate script:
+Sat Sep  3 02:59:09 2016 - [info]   /etc/conf/mysqlmha/master_ip_failover --command=start --ssh_user=root --orig_master_host=192.168.100.102 --orig_master_ip=192.168.100.102 --orig_master_port=3456 --new_master_host=192.168.100.103 --new_master_ip=192.168.100.103 --new_master_port=3456 --new_master_user='mysqlmha' --new_master_password='passwd'  
+Unknown option: new_master_user
+Unknown option: new_master_password
+
+
+IN SCRIPT TEST====sudo /sbin/ifconfig eth0:1 down==sudo /sbin/ifconfig eth0:1 192.168.100.100/24===
+
+Enabling the VIP - 192.168.100.100/24 on the new master - 192.168.100.103 
+sudo: sorry, you must have a tty to run sudo
+Sat Sep  3 02:59:09 2016 - [info]  OK.
+Sat Sep  3 02:59:09 2016 - [info] ** Finished master recovery successfully.
+Sat Sep  3 02:59:09 2016 - [info] * Phase 3: Master Recovery Phase completed.
+Sat Sep  3 02:59:09 2016 - [info] 
+Sat Sep  3 02:59:09 2016 - [info] * Phase 4: Slaves Recovery Phase..
+Sat Sep  3 02:59:09 2016 - [info] 
+Sat Sep  3 02:59:09 2016 - [info] 
+Sat Sep  3 02:59:09 2016 - [info] * Phase 4.1: Starting Slaves in parallel..
+Sat Sep  3 02:59:09 2016 - [info] 
+Sat Sep  3 02:59:09 2016 - [info] -- Slave recovery on host 192.168.100.104(192.168.100.104:3456) started, pid: 9269. Check tmp log /mysqlmha/mha/192.168.100.104_3456_20160903025907.log if it takes time..
+Sat Sep  3 02:59:10 2016 - [info] 
+Sat Sep  3 02:59:10 2016 - [info] Log messages from 192.168.100.104 ...
+Sat Sep  3 02:59:10 2016 - [info] 
+Sat Sep  3 02:59:09 2016 - [info]  Resetting slave 192.168.100.104(192.168.100.104:3456) and starting replication from the new master 192.168.100.103(192.168.100.103:3456)..
+Sat Sep  3 02:59:09 2016 - [info]  Executed CHANGE MASTER.
+Sat Sep  3 02:59:10 2016 - [info]  Slave started.
+Sat Sep  3 02:59:10 2016 - [info]  gtid_wait(a24c0b76-702f-11e6-ae67-000c29b1c1f6:1,
+d1dfb067-702e-11e6-ae62-000c29e8d942:1-3) completed on 192.168.100.104(192.168.100.104:3456). Executed 0 events.
+Sat Sep  3 02:59:10 2016 - [info] End of log messages from 192.168.100.104.
+Sat Sep  3 02:59:10 2016 - [info] -- Slave on host 192.168.100.104(192.168.100.104:3456) started.
+Sat Sep  3 02:59:10 2016 - [info] All new slave servers recovered successfully.
+Sat Sep  3 02:59:10 2016 - [info] 
+Sat Sep  3 02:59:10 2016 - [info] * Phase 5: New master cleanup phase..
+Sat Sep  3 02:59:10 2016 - [info] 
+Sat Sep  3 02:59:10 2016 - [info] Resetting slave info on the new master..
+Sat Sep  3 02:59:10 2016 - [info]  192.168.100.103: Resetting slave info succeeded.
+Sat Sep  3 02:59:10 2016 - [info] Master failover to 192.168.100.103(192.168.100.103:3456) completed successfully.
+Sat Sep  3 02:59:10 2016 - [info] 
+
+----- Failover Report -----
+
+mha: MySQL Master failover 192.168.100.102(192.168.100.102:3456) to 192.168.100.103(192.168.100.103:3456) succeeded
+
+Master 192.168.100.102(192.168.100.102:3456) is down!
+
+Check MHA Manager logs at mha3:/mysqlmha/mha/manager.log for details.
+
+Started automated(non-interactive) failover.
+Invalidated master IP address on 192.168.100.102(192.168.100.102:3456)
+Selected 192.168.100.103(192.168.100.103:3456) as a new master.
+192.168.100.103(192.168.100.103:3456): OK: Applying all logs succeeded.
+192.168.100.103(192.168.100.103:3456): OK: Activated master IP address.
+192.168.100.104(192.168.100.104:3456): OK: Slave started, replicating from 192.168.100.103(192.168.100.103:3456)
+192.168.100.103(192.168.100.103:3456): Resetting slave info succeeded.
+Master failover to 192.168.100.103(192.168.100.103:3456) completed successfully.
+Sat Sep  3 02:59:10 2016 - [info] Sending mail..
+Unknown option: conf
+Can't call method "MailMsg" without a package or object reference at /etc/conf/mysqlmha/send_report line 64.
+Sat Sep  3 02:59:10 2016 - [error][/usr/share/perl5/vendor_perl/MHA/MasterFailover.pm, ln2065] Failed to send mail with return code 2:0
