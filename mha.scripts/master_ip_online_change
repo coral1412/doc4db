@@ -38,9 +38,9 @@ my (
 );
 
 
-my $vip = '192.168.21.200/24';  # Virtual IP 
+my $vip = '192.168.100.100/24';  # Virtual IP 
 my $key = "1"; 
-my $ssh_start_vip = "/sbin/ifconfig ethr0:$key $vip";
+my $ssh_start_vip = "/sbin/ifconfig eth0:$key $vip";
 my $ssh_stop_vip = "/sbin/ifconfig eth0:$key down";
 my $ssh_user = "root";
 my $new_master_password='passwd';
