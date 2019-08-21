@@ -21,19 +21,19 @@
 
 # *Upgrade*
 
-​	版本升级相对于版本降级更容易，因为软件版本通常来说都是向后兼容的。对于MySQL的版本升级也不例外，不管是大版本或小版本升级，下面就大小版本的就地升级方式做操作说明，其操作方式都是一致的，实操验证ok。
+版本升级相对于版本降级更容易，因为软件版本通常来说都是向后兼容的。对于MySQL的版本升级也不例外，不管是大版本或小版本升级，下面就大小版本的就地升级方式做操作说明，其操作方式都是一致的，实操验证ok。
 
-1.  如有需要备份数据文件，主要是为了安全起见，尤其是单实例，注意此备份内容包括系统库表数据
+1. 如有需要备份数据文件，主要是为了安全起见，尤其是单实例，注意此备份内容包括系统库表数据
 
-2.  设置innodb_fast_shutdown选项，安全关闭MySQL
+2. 设置innodb_fast_shutdown选项，安全关闭MySQL
 
    `mysql -uroot -ppasswd --execute="set global innodb_fast_shutdown=0"`
 
-3.  关闭MySQL
+3. 关闭MySQL
 
    `mysql -uroot -ppasswd --execute="shutdown"`
 
-4.  替换原实例的basedir目录
+4. 替换原实例的basedir目录
 
    `mv /usr/local/mysql  /usr/local/mysql5722`  
 
@@ -41,17 +41,17 @@
 
    `chown -R mysql:mysql /usr/local/mysql`
 
-5.  启动MySQL，观察errorlog有无异常
+5. 启动MySQL，观察errorlog有无异常
 
    `/etc/init.d/mysqld start`
 
    `tailf  /data/3306/log/error.log`
 
-6.  检查所有库表并修复兼容性问题，执行升级MySQL系统库，如all ok即可
+6. 检查所有库表并修复兼容性问题，执行升级MySQL系统库，如all ok即可
 
    `mysql_upgrade -uroot -ppasswd`
 
-7.  重启MySQL再次验证升级是否OK
+7. 重启MySQL再次验证升级是否OK
 
    `/etc/init.d/mysqld restart`
 
@@ -61,7 +61,7 @@
 
 # *Downgrade*
 
-​	版本降级的需求，我暂时没想到有什么场景会有这样的需求，因为是向上（后）兼容的特性，降级操作带来的问题是新版本向下（前）面临诸如表存储格式的不兼容，尤其是对于大版本的降级，所以通过备份恢复（mysqldump）方式通常来说更稳妥。下述是对小版本的就地降级方式的操作说明
+版本降级的需求，我暂时没想到有什么场景会有这样的需求，因为是向上（后）兼容的特性，降级操作带来的问题是新版本向下（前）面临诸如表存储格式的不兼容，尤其是对于大版本的降级，所以通过备份恢复（mysqldump）方式通常来说更稳妥。下述是对小版本的就地降级方式的操作说明
 
 1. 操作前备份备份备份，尤其是对于大变更或者高危操作等等尤其重要，注意此备份内容包括系统库表数据
 
