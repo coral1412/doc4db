@@ -1,4 +1,4 @@
-# 			MySQL_Logical_Backup
+# 			MySQL_Backup
 
 ## mysqldump
 
@@ -44,3 +44,12 @@
 - 使用示例
 - 注意事项
 
+## xtrabacupex
+
+- 简介
+- 实现原理
+- 权限要求
+- 特点、缺点
+- 重点参数
+- 使用示例
+- 注意事项
