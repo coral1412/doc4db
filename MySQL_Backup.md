@@ -38,9 +38,9 @@
 
 - 使用示例
 
-  mysqldump -uroot -ppasswd  -R -E --triggesr --single-transaction=1  --master-data=2  --all-databases>/data/dumpfile/all.sql
+  `mysqldump -uroot -ppasswd  -R -E --triggesr --single-transaction=1  --master-data=2  --all-databases>/data/dumpfile/all.sql`
 
-  mysqldump  -uroot -ppasswd -R -E --triggers --single-transaction=1 --master-data=2 --databases test --ignore-table='test.test'  >/data/dumpfile/all_ignore_test_test.sql
+  `mysqldump  -uroot -ppasswd -R -E --triggers --single-transaction=1 --master-data=2 --databases test --ignore-table='test.test'  >/data/dumpfile/all_ignore_test_test.sql`
 
 - 限制
 
