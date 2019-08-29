@@ -31,16 +31,18 @@
   	1. **连接选项**，如--user、--password、--port、--host、--bind-address、--compress等
    	2. **ddl选项**，如--add-drop-database、--add-drop-table、--add-drop-trigger、--all-tablespace、--no-create-db、--no-create-info等
    	3. **debug选项**，如--comments、--force、--log-error等
-   	4. **复制选项**，如--apply-slave-statements、--dump-slave、--master-data、--set-gtid-purged
-   	5. **过滤选项**，--all-databases，--databases、--event、--ignore-table、--no-data、--routines、--triggers、--tables、--where
-   	6. **性能选项**，--disable-keys、--extended-insert、--insert-ignore、--max-allowed-packet、--net-buffer-length、--opt、--skip-opt、--quick
-   	7. **事务选线**，--single-transaction、--flush-privileges、--flush-logs、--add-locks、--lock-all-tables、--lock-tables、--no-autocommit、--order-by-primary、--
+   	4. **复制选项**，如--apply-slave-statements、--dump-slave、--master-data、--set-gtid-purged等
+   	5. **过滤选项**，--all-databases，--databases、--event、--ignore-table、--no-data、--routines、--triggers、--tables、--where等
+   	6. **性能选项**，--disable-keys、--extended-insert、--insert-ignore、--max-allowed-packet、--net-buffer-length、--opt、--skip-opt、--quick 等
+   	7. **事务选线**，--single-transaction、--flush-privileges、--flush-logs、--add-locks、--lock-all-tables、--lock-tables、--no-autocommit、--order-by-primary等
 
 - 使用示例
 
-  `mysqldump -uroot -ppasswd  -R -E --triggesr --single-transaction=1  --master-data=2  --all-databases>/data/dumpfile/all.sql`
+  `mysqldump -uroot -ppasswd -R -E --triggesr --single-transaction=1 --master-data=2 --all-databases>/data/dumpfile/all.sql`
 
   `mysqldump  -uroot -ppasswd -R -E --triggers --single-transaction=1 --master-data=2 --databases test --ignore-table='test.test'  >/data/dumpfile/all_ignore_test_test.sql`
+
+  `mysqldump  -uroot -ppasswd  --all-databases  --single-transaction=1  --no-data   --skip-add-drop-table >/data/dumpfile/all_schema.sql`
 
 - 限制
 
