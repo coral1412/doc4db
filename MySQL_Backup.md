@@ -42,7 +42,9 @@
 
   `mysqldump  -uroot -ppasswd -R -E --triggers --single-transaction=1 --master-data=2 --databases test --ignore-table='test.test'  >/data/dumpfile/all_ignore_test_test.sql`
 
-  `mysqldump  -uroot -ppasswd  --all-databases  --single-transaction=1  --no-data   --skip-add-drop-table >/data/dumpfile/all_schema.sql`
+  `mysqldump  -uroot -ppasswd  --single-transaction=1  --no-data  --skip-add-drop-table  test >/data/dumpfile/all_schema.sql`
+
+  `mysqldump -uroot -ppasswd --single-transaction=1 --no-create-info test>/data/dumpfile/data.sql`
 
 - 限制
 
